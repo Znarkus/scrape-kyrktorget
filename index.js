@@ -114,12 +114,9 @@ async function loadList (regionId) {
   console.log('loading list for region', regionId)
 
   const LIST_URL = 'https://www.kyrktorget.se/api/filter?type=lan&ids='
-    // + [...Array(20).keys()].map(i => i + 1)
     + regionId
 
-  const { data: churches } = await axios.post(LIST_URL, {}, {
-    // headers: { Cookie: LIST_COOKIE }
-  })
+  const { data: churches } = await axios.post(LIST_URL)
 
   console.log('list loaded')
 
@@ -138,7 +135,6 @@ async function retryPromise (promiseCb) {
     try {
       return await promiseCb()
     } catch (err) {
-      // if (err.code !== 'ECONNRESET') throw err
       console.error(err.toString())
     }
   }
