@@ -1,0 +1,5 @@
+/region*.complete
+/region*.list.json
+/churches-region*.csv
+node_modules/
+.idea/
